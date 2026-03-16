@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hoşça Kal Zeynep Keskin — Tüpraş Veda</title>
+    <meta name="description" content="Zeynep Keskin'in Tüpraş'taki başarılı yolculuğunu kutluyoruz." />
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+    <!-- ═══════ SPLASH / WELCOME SCREEN ═══════ -->
+    <div class="splash-screen" id="splashScreen" onclick="startExperience()">
+        <div class="splash-content">
+            <div class="splash-icon">💛</div>
+            <h1 class="splash-title">Zeynep Keskin'in<br>Veda Etkinliğine<br>Hoş Geldiniz</h1>
+            <p class="splash-subtitle">Tüpraş Ailesi olarak sevgili direktörümüzü uğurluyoruz</p>
+            <div class="splash-btn">
+                <span>Başlamak İçin Tıklayınız</span>
+                <div class="splash-ripple"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ═══════ HERO SECTION ═══════ -->
+    <section class="hero" id="hero">
+        <canvas id="balloons-canvas"></canvas>
+        <div class="hero-content">
+            <span class="hero-badge">🎉 Tüpraş Ailesi 🎉</span>
+            <h1>
+                Yeni Yolculuğunda Başarılar,
+                <span class="name">Zeynep Keskin!</span>
+            </h1>
+            <p class="subtitle">
+                Tüpraş'taki yılların boyunca gösterdiğin liderlik, özveri ve sıcaklık asla unutulmayacak. Seni sevgiyle
+                uğurluyoruz! 💛
+            </p>
+            <div class="scroll-hint">
+                Keşfetmeye Başla ↓
+            </div>
+        </div>
+    </section>
+
+    <!-- Wave: Hero → Timeline -->
+    <div class="wave-divider">
+        <svg viewBox="0 0 1440 80" preserveAspectRatio="none">
+            <path d="M0,40 C360,80 720,0 1080,40 C1260,60 1380,50 1440,40 L1440,80 L0,80 Z" fill="#FEF3E2" />
+        </svg>
+    </div>
+
+    <!-- ═══════ TIMELINE SECTION ═══════ -->
+    <!-- Timeline Auto-Play Skip Button -->
+    <button class="timeline-skip-btn" id="timelineSkipBtn" onclick="exitTimelineAutoplay()">Atla ✕</button>
+
+    <section class="timeline-section" id="timeline">
+        <!-- Auto-play progress bar -->
+        <div class="timeline-progress-bar" id="timelineProgressBar">
+            <div class="timeline-progress-bar-fill" id="timelineProgressFill"></div>
+        </div>
+
+        <div class="container">
+            <div class="section-header">
+                <span class="label">✨ Bir Başarı Hikâyesi</span>
+                <h2>Zeynep Hanım'ın Tüpraş Yolculuğu</h2>
+                <div class="divider"></div>
+            </div>
+
+            <!-- ═══ MILESTONE CARD GRID ═══ -->
+            <div class="milestone-grid" id="snakeTimeline">
+
+                <div class="mg-card milestone">
+                    <div class="mg-num">2010 - 2012</div>
+                    <div class="mg-icon">💼</div>
+                    <div class="mg-title">Finansal Raporlama Uzmanı</div>
+                </div>
+
+                <div class="mg-card milestone">
+                    <div class="mg-num">2012 - 2015</div>
+                    <div class="mg-icon">📊</div>
+                    <div class="mg-title">Finansal Raporlama Şefi</div>
+                </div>
+
+                <div class="mg-card milestone">
+                    <div class="mg-num">2015 - 2018</div>
+                    <div class="mg-icon">🎯</div>
+                    <div class="mg-title">Finansal Raporlama Koordinatörü</div>
+                </div>
+
+                <div class="mg-card milestone">
+                    <div class="mg-num">2018 - 2019</div>
+                    <div class="mg-icon">📈</div>
+                    <div class="mg-title">Finansal Raporlama Müdürü</div>
+                </div>
+
+                <div class="mg-card milestone">
+                    <div class="mg-num">2019 - 2021</div>
+                    <div class="mg-icon">💡</div>
+                    <div class="mg-title">Finansal Planlama ve Raporlama Grup Müdürü</div>
+                </div>
+
+                <div class="mg-card milestone">
+                    <div class="mg-num">2021 - 2024</div>
+                    <div class="mg-icon">🚀</div>
+                    <div class="mg-title">Finansal Planlama ve Raporlama Direktörü</div>
+                </div>
+
+                <div class="mg-card milestone">
+                    <div class="mg-num">2024 Eylül - Günümüz</div>
+                    <div class="mg-icon">🌟</div>
+                    <div class="mg-title">Mali İşler Grup Direktörü</div>
+                </div>
+
+                <div class="mg-card milestone mg-last">
+                    <div class="mg-num">2026 Mart</div>
+                    <div class="mg-icon">🎯</div>
+                    <div class="mg-title">Yeni Bir Yolculuk...</div>
+                </div>
+
+            </div><!-- /milestone-grid -->
+        </div>
+
+        <!-- Continue to Gallery Button (shown after all milestones) -->
+        <button class="timeline-continue-btn" id="timelineContinueBtn" onclick="exitTimelineAutoplay()">
+            📸 Anı Galerisini Görüntüle →
+        </button>
+    </section>
+
+    <!-- Wave: Timeline → Gallery -->
+    <div class="wave-divider flip">
+        <svg viewBox="0 0 1440 80" preserveAspectRatio="none">
+            <path d="M0,40 C360,0 720,80 1080,40 C1260,20 1380,30 1440,40 L1440,80 L0,80 Z" fill="#FEF3E2" />
+        </svg>
+    </div>
+
+    <!-- ═══════ GALLERY — SCATTERED POLAROIDS ═══════ -->
+    <section class="gallery-section" id="gallery">
+        <div class="container">
+            <div class="section-header">
+                <span class="label">📸 Arşivden Kareler</span>
+                <h2>Anı Galerisi</h2>
+                <div class="divider"></div>
+            </div>
+
+            <div class="clothesline-gallery">
+                <!-- Row 1 -->
+                <div class="clothesline-row">
+                    <div class="rope"></div>
+                    <div class="polaroid"><div class="cl-pin"></div><img src="images/1.jpeg" alt="Fotoğraf 1" /></div>
+                    <div class="polaroid"><div class="cl-pin"></div><img src="images/2.jpeg" alt="Fotoğraf 2" /></div>
+                    <div class="polaroid"><div class="cl-pin"></div><img src="images/3.jpeg" alt="Fotoğraf 3" /></div>
+                    <div class="polaroid"><div class="cl-pin"></div><img src="images/4.jpeg" alt="Fotoğraf 4" /></div>
+                    <div class="polaroid"><div class="cl-pin"></div><img src="images/5.jpeg" alt="Fotoğraf 5" /></div>
+                    <div class="polaroid"><div class="cl-pin"></div><img src="images/6.jpeg" alt="Fotoğraf 6" /></div>
+                    <div class="polaroid"><div class="cl-pin"></div><img src="images/7.jpeg" alt="Fotoğraf 7" /></div>
+                    <div class="polaroid"><div class="cl-pin"></div><img src="images/8.jpeg" alt="Fotoğraf 8" /></div>
+                </div>
+
+                <!-- Row 2 -->
+                <div class="clothesline-row">
+                    <div class="rope"></div>
+                    <div class="polaroid"><div class="cl-pin"></div><img src="images/9.jpeg" alt="Fotoğraf 9" /></div>
+                    <div class="polaroid"><div class="cl-pin"></div><img src="images/10.jpeg" alt="Fotoğraf 10" /></div>
+                    <div class="polaroid"><div class="cl-pin"></div><img src="images/11.jpeg" alt="Fotoğraf 11" /></div>
+                    <div class="polaroid"><div class="cl-pin"></div><img src="images/12.jpeg" alt="Fotoğraf 12" /></div>
+                    <div class="polaroid"><div class="cl-pin"></div><img src="images/13.jpeg" alt="Fotoğraf 13" /></div>
+                    <div class="polaroid"><div class="cl-pin"></div><img src="images/14.jpeg" alt="Fotoğraf 14" /></div>
+                    <div class="polaroid"><div class="cl-pin"></div><img src="images/15.jpeg" alt="Fotoğraf 15" /></div>
+                    <div class="polaroid"><div class="cl-pin"></div><img src="images/16.jpeg" alt="Fotoğraf 16" /></div>
+                </div>
+
+                <!-- Row 3 -->
+                <div class="clothesline-row">
+                    <div class="rope"></div>
+                    <div class="polaroid"><div class="cl-pin"></div><img src="images/17.jpeg" alt="Fotoğraf 17" /></div>
+                    <div class="polaroid"><div class="cl-pin"></div><img src="images/18.jpeg" alt="Fotoğraf 18" /></div>
+                    <div class="polaroid"><div class="cl-pin"></div><img src="images/19.jpeg" alt="Fotoğraf 19" /></div>
+                    <div class="polaroid"><div class="cl-pin"></div><img src="images/20.jpeg" alt="Fotoğraf 20" /></div>
+                    <div class="polaroid"><div class="cl-pin"></div><img src="images/21.jpeg" alt="Fotoğraf 21" /></div>
+                    <div class="polaroid"><div class="cl-pin"></div><img src="images/22.jpeg" alt="Fotoğraf 22" /></div>
+                    <div class="polaroid"><div class="cl-pin"></div><img src="images/23.jpeg" alt="Fotoğraf 23" /></div>
+                    <div class="polaroid"><div class="cl-pin"></div><img src="images/24.jpeg" alt="Fotoğraf 24" /></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Wave divider removed per user request -->
+
+
+    <!-- ═══════ VIDEO SECTION ═══════ -->
+    <section class="video-section" id="video">
+        <div class="container">
+            <div class="section-header">
+                <span class="label">🎬 Son Bir Sürpriz</span>
+                <h2>Veda Videosu</h2>
+                <div class="divider"></div>
+            </div>
+
+            <div class="video-wrapper">
+                <video class="main-video" controls>
+                    <source src="videos/veda.mp4" type="video/mp4">
+                    Tarayıcınız video etiketini desteklemiyor.
+                </video>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════ PHOTO LIGHTBOX MODAL ═══════ -->
+    <div class="photo-lightbox" id="photoLightbox" onclick="closePhoto()">
+        <button class="lightbox-close" onclick="closePhoto(event)">&times;</button>
+        <img class="lightbox-img" id="lightboxImg" src="" alt="Büyütülmüş Fotoğraf" onclick="event.stopPropagation()">
+    </div>
+
+    <!-- ═══════ FOOTER ═══════ -->
+    <footer class="footer">
+        <div class="big-farewell">Seni Çok Özleyeceğiz! 💛</div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

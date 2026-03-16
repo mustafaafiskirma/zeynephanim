@@ -1,0 +1,1143 @@
+/* ═══════════════════════════════════════════
+   CSS VARIABLES & RESET
+═══════════════════════════════════════════ */
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;600;700;800&display=swap');
+
+:root {
+  --color-crimson: #BF0426;
+  --color-teal: #4B95A6;
+  --color-cyan: #6FB7BF;
+  --color-olive: #6E8C03;
+  --color-gold: #F2B705;
+
+  --bg-cream: #FFF8F0;
+  --bg-warm: #FEF3E2;
+  --bg-blush: #FFF0F0;
+  --bg-mint: #F0FAF8;
+  --bg-lavender: #F5F0FF;
+  --bg-white: #FFFFFF;
+
+  --text-dark: #2D2A26;
+  --text-body: #4A4540;
+  --text-muted: #8A8279;
+
+  --pastel-pink: #FFD6E0;
+  --pastel-yellow: #FFF3C7;
+  --pastel-blue: #D0ECFF;
+  --pastel-green: #D4F5E9;
+  --pastel-lavender: #E8DDFF;
+  --pastel-peach: #FFDEC2;
+
+  --envelope-pink: #F2A7B3;
+  --envelope-blue: #7EC8D9;
+  --envelope-yellow: #F2CC5A;
+  --envelope-green: #8BC99A;
+
+  --font-display: 'Playfair Display', Georgia, serif;
+  --font-handwritten: 'Dancing Script', cursive;
+  --font-body: 'Inter', -apple-system, sans-serif;
+
+  --section-padding: 100px 0;
+  --container-width: 1200px;
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 18px;
+}
+
+body {
+  font-family: var(--font-body);
+  background: var(--bg-cream);
+  color: var(--text-dark);
+  line-height: 1.7;
+  overflow-x: hidden;
+}
+
+.container {
+  max-width: var(--container-width);
+  margin: 0 auto;
+  padding: 0 40px;
+}
+
+/* ═══════════════════════════════════════════
+   SECTION HEADERS
+═══════════════════════════════════════════ */
+.section-header {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.section-header .label {
+  font-family: var(--font-handwritten);
+  font-size: 1.3rem;
+  color: var(--color-crimson);
+  margin-bottom: 8px;
+  display: block;
+}
+
+.section-header h2 {
+  font-family: var(--font-display);
+  font-size: 2.8rem;
+  font-weight: 700;
+  color: var(--text-dark);
+  line-height: 1.2;
+}
+
+.section-header .divider {
+  width: 80px;
+  height: 4px;
+  background: linear-gradient(90deg, var(--color-gold), var(--color-crimson));
+  margin: 16px auto 0;
+  border-radius: 4px;
+}
+
+/* ═══════════════════════════════════════════
+   WAVE DIVIDERS
+═══════════════════════════════════════════ */
+.wave-divider {
+  width: 100%;
+  line-height: 0;
+  overflow: hidden;
+}
+
+.wave-divider svg {
+  display: block;
+  width: 100%;
+  height: 80px;
+}
+
+.wave-divider.flip {
+  transform: scaleY(-1);
+}
+
+/* ═══════════════════════════════════════════
+   SPLASH / WELCOME SCREEN
+═══════════════════════════════════════════ */
+.splash-screen {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: linear-gradient(160deg, #FFF8F0 0%, #FEF3E2 40%, #FFF0F0 70%, #FFF8F0 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: opacity 0.8s ease, visibility 0.8s ease;
+}
+
+.splash-screen.hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.splash-content {
+  text-align: center;
+  max-width: 600px;
+  padding: 40px;
+}
+
+.splash-icon {
+  font-size: 4rem;
+  margin-bottom: 24px;
+  animation: splashPulse 2s ease-in-out infinite;
+}
+
+@keyframes splashPulse {
+
+  0%,
+  100% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.15);
+  }
+}
+
+.splash-title {
+  font-family: var(--font-display);
+  font-size: 2.8rem;
+  font-weight: 800;
+  color: var(--text-dark);
+  line-height: 1.2;
+  margin-bottom: 20px;
+}
+
+.splash-subtitle {
+  font-family: var(--font-handwritten);
+  font-size: 1.3rem;
+  color: var(--text-muted);
+  margin-bottom: 50px;
+}
+
+.splash-btn {
+  display: inline-block;
+  position: relative;
+  font-family: var(--font-handwritten);
+  font-size: 1.2rem;
+  color: var(--color-crimson);
+  border: 2px dashed var(--color-gold);
+  padding: 16px 40px;
+  border-radius: 50px;
+  background: rgba(242, 183, 5, 0.08);
+  animation: splashBtnGlow 2s ease-in-out infinite;
+}
+
+@keyframes splashBtnGlow {
+
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 rgba(242, 183, 5, 0);
+  }
+
+  50% {
+    box-shadow: 0 0 0 12px rgba(242, 183, 5, 0.15);
+  }
+}
+
+.splash-ripple {
+  position: absolute;
+  inset: -4px;
+  border-radius: 50px;
+  border: 2px solid var(--color-gold);
+  opacity: 0;
+  animation: splashRipple 3s ease-out infinite;
+}
+
+@keyframes splashRipple {
+  0% {
+    transform: scale(1);
+    opacity: 0.5;
+  }
+
+  100% {
+    transform: scale(1.4);
+    opacity: 0;
+  }
+}
+
+/* ═══════════════════════════════════════════
+   HERO SECTION
+═══════════════════════════════════════════ */
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  overflow: hidden;
+  background: linear-gradient(160deg, #FFF8F0 0%, #FEF3E2 30%, #FFF0F0 60%, #FFF8F0 100%);
+}
+
+#balloons-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 850px;
+  padding: 40px;
+}
+
+.hero-badge {
+  display: inline-block;
+  font-family: var(--font-handwritten);
+  font-size: 1.1rem;
+  color: var(--color-crimson);
+  border: 2px dashed var(--color-gold);
+  padding: 10px 28px;
+  border-radius: 50px;
+  margin-bottom: 30px;
+  background: rgba(242, 183, 5, 0.1);
+  animation: heroFadeIn 1s ease-out 0.3s both;
+}
+
+.hero h1 {
+  font-family: var(--font-display);
+  font-size: 3.5rem;
+  font-weight: 800;
+  line-height: 1.15;
+  color: var(--text-dark);
+  margin-bottom: 20px;
+  animation: heroFadeIn 1s ease-out 0.6s both;
+}
+
+.hero h1 .name {
+  display: block;
+  font-family: var(--font-handwritten);
+  font-size: 4.5rem;
+  color: var(--color-crimson);
+  margin-top: 8px;
+}
+
+.hero .subtitle {
+  font-size: 1.15rem;
+  color: var(--text-body);
+  font-weight: 400;
+  max-width: 550px;
+  margin: 0 auto 36px;
+  animation: heroFadeIn 1s ease-out 0.9s both;
+}
+
+.hero .scroll-hint {
+  animation: heroFadeIn 1s ease-out 1.2s both, bounce 2s ease-in-out infinite 2s;
+  color: var(--text-muted);
+  font-family: var(--font-handwritten);
+  font-size: 1.1rem;
+}
+
+.hero .scroll-hint span {
+  display: block;
+  margin-top: 8px;
+  font-size: 1.5rem;
+}
+
+/* Decorative emoji burst */
+.hero-emojis {
+  position: absolute;
+  font-size: 2.5rem;
+  opacity: 0;
+  animation: emojiFloat 3s ease-out forwards;
+  z-index: 1;
+  pointer-events: none;
+}
+
+@keyframes heroFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes bounce {
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(8px);
+  }
+}
+
+@keyframes emojiFloat {
+  0% {
+    opacity: 0;
+    transform: translateY(0) scale(0.5);
+  }
+
+  30% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+    transform: translateY(-120px) scale(1.2);
+  }
+}
+
+/* ═════════════════════════════════════════════
+   TIMELINE AUTO-PLAY OVERLAY
+═════════════════════════════════════════════ */
+
+/* Fullscreen overlay mode */
+.timeline-section.autoplay-mode {
+  position: fixed;
+  inset: 0;
+  z-index: 5000;
+  margin: 0;
+  padding: 0;
+  overflow-y: auto;
+  background: linear-gradient(160deg, #FEF3E2 0%, #FFF8F0 50%, #FFF0E8 100%);
+  display: flex;
+  flex-direction: column;
+}
+
+.timeline-section.autoplay-mode .container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding-top: 30px;
+  padding-bottom: 120px; /* Increased padding-bottom to prevent cutoff */
+}
+
+/* Progress bar at the top */
+.timeline-progress-bar {
+  display: none;
+  position: sticky;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 5px;
+  background: rgba(242, 183, 5, 0.2);
+  z-index: 10;
+}
+
+.timeline-progress-bar-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--color-gold), var(--color-crimson));
+  width: 0%;
+  transition: width 0.6s ease;
+  border-radius: 0 3px 3px 0;
+}
+
+.timeline-section.autoplay-mode .timeline-progress-bar {
+  display: block;
+}
+
+/* Close / skip button */
+.timeline-skip-btn {
+  display: none;
+  position: fixed;
+  top: 16px;
+  right: 20px;
+  z-index: 5100;
+  background: rgba(255, 255, 255, 0.7);
+  border: 1px solid rgba(242, 183, 5, 0.4);
+  border-radius: 50px;
+  padding: 8px 18px;
+  font-family: var(--font-body);
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  cursor: pointer;
+  backdrop-filter: blur(8px);
+  transition: all 0.3s ease;
+}
+
+.timeline-skip-btn:hover {
+  background: rgba(255, 255, 255, 0.95);
+  color: var(--color-crimson);
+  border-color: var(--color-crimson);
+}
+
+.timeline-section.autoplay-mode~.timeline-skip-btn,
+body.timeline-autoplay .timeline-skip-btn {
+  display: block;
+}
+
+/* Continue to Gallery button — appears after last milestone */
+.timeline-continue-btn {
+  display: none;
+  align-self: center;
+  margin-top: 40px;
+  padding: 18px 44px;
+  background: linear-gradient(135deg, var(--color-gold), #E8A000);
+  color: #fff;
+  border: none;
+  border-radius: 50px;
+  font-family: var(--font-handwritten);
+  font-size: 1.4rem;
+  cursor: pointer;
+  box-shadow: 0 6px 24px rgba(242, 183, 5, 0.4);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  animation: continueGlow 0.6s ease-out both;
+}
+
+.timeline-continue-btn:hover {
+  transform: translateY(-3px) scale(1.04);
+  box-shadow: 0 12px 32px rgba(242, 183, 5, 0.5);
+}
+
+@keyframes continueGlow {
+  from {
+    opacity: 0;
+    transform: scale(0.85) translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+/* Milestone auto-play: hide all initially in autoplay mode */
+.timeline-section.autoplay-mode .milestone {
+  opacity: 0;
+  transform: translateX(-40px);
+  transition: opacity 0.7s cubic-bezier(0.19, 1, 0.22, 1),
+    transform 0.7s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+.timeline-section.autoplay-mode .milestone.auto-visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Milestone ping animation on reveal */
+.timeline-section.autoplay-mode .milestone.auto-visible .milestone-marker {
+  animation: milestonePing 0.5s ease-out 0.3s both;
+}
+
+@keyframes milestonePing {
+  0% {
+    box-shadow: 0 0 0 0 rgba(242, 183, 5, 0.5);
+  }
+
+  70% {
+    box-shadow: 0 0 0 16px rgba(242, 183, 5, 0);
+  }
+
+  100% {
+    box-shadow: 0 4px 15px rgba(242, 183, 5, 0.2);
+  }
+}
+
+/* ═══════════════════════════════════════════
+   TIMELINE — WINDING PATH
+═══════════════════════════════════════════ */
+.timeline-section {
+  padding: var(--section-padding);
+  background: var(--bg-warm);
+  position: relative;
+}
+
+.timeline-path {
+  position: relative;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.path-svg {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 0;
+  height: 100%;
+  width: 60px;
+  z-index: 0;
+}
+
+.path-svg path {
+  fill: none;
+  stroke: var(--color-gold);
+  stroke-width: 4;
+  stroke-dasharray: 12 6;
+  stroke-linecap: round;
+}
+
+.milestone {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 60px;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.7s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+.milestone.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.milestone:nth-child(odd) {
+  flex-direction: row;
+  text-align: left;
+  padding-right: 55%;
+}
+
+.milestone:nth-child(even) {
+  flex-direction: row-reverse;
+  text-align: right;
+  padding-left: 55%;
+}
+
+.milestone-marker {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 56px;
+  height: 56px;
+  background: var(--bg-white);
+  border: 3px solid var(--color-gold);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  z-index: 2;
+  box-shadow: 0 4px 15px rgba(242, 183, 5, 0.2);
+}
+
+.milestone-content {
+  background: var(--bg-white);
+  padding: 24px;
+  border-radius: 20px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+  border: 2px solid rgba(242, 183, 5, 0.15);
+  position: relative;
+}
+
+.milestone-content .year {
+  font-family: var(--font-handwritten);
+  font-size: 1.8rem;
+  color: var(--color-crimson);
+  margin-bottom: 4px;
+}
+
+.milestone-content .title {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--text-dark);
+  margin-bottom: 6px;
+}
+
+.milestone-content .desc {
+  font-size: 0.82rem;
+  color: var(--text-body);
+}
+
+/* ═══════════════════════════════════════════
+   GALLERY — SCATTERED POLAROID PILE
+═══════════════════════════════════════════ */
+.gallery-section {
+  padding: var(--section-padding);
+  background: var(--bg-cream);
+}
+
+.clothesline-gallery {
+  display: flex;
+  flex-direction: column;
+  gap: 60px; /* Space between rows */
+  width: 100%;
+  max-width: 1400px; /* Wide screen support */
+  margin: 0 auto;
+  padding: 40px 0 80px;
+}
+
+.clothesline-row {
+  position: relative;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: flex-start;
+  flex-wrap: nowrap; /* Prevent wrapping to secondary line so rope aligns */
+  gap: 15px;
+  padding-top: 20px;
+  min-height: 200px;
+  overflow-x: auto; /* horizontally scrollable on mobile */
+  padding-bottom: 30px; /* Space for shadow */
+}
+
+/* The actual rope */
+.rope {
+  position: absolute;
+  top: 20px;
+  left: -5%;
+  width: 110%;
+  height: 20px;
+  border-bottom: 2px solid #d5c8be;
+  border-radius: 50%;
+  z-index: 0;
+}
+
+.polaroid {
+  position: relative;
+  background: #fff;
+  padding: 8px 8px 35px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1), 0 1px 4px rgba(0,0,0,0.08);
+  cursor: pointer;
+  transition: transform 0.4s ease, box-shadow 0.3s ease, z-index 0s;
+  z-index: 10;
+  flex-shrink: 0; /* Prevent unwanted squishing */
+  width: calc(12.5% - 15px);
+  min-width: 100px; /* Reduced minimum width to fit 8 per row on desktop */
+  max-width: 220px;
+  
+  /* Slight random tilts by default using nth-child */
+  transform: rotate(-2deg);
+}
+
+.polaroid:nth-child(2n) { transform: translateY(5px) rotate(3deg); }
+.polaroid:nth-child(3n) { transform: translateY(-3px) rotate(-4deg); }
+.polaroid:nth-child(5n) { transform: translateY(4px) rotate(5deg); }
+.polaroid:nth-child(7n) { transform: translateY(-5px) rotate(-1deg); }
+
+.polaroid:hover {
+  transform: scale(1.15) rotate(0deg) !important;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+  z-index: 50 !important;
+}
+
+.polaroid img {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  display: block;
+}
+
+/* The Clothespin (Mandal) */
+.cl-pin {
+  position: absolute;
+  top: -22px; /* Hang slightly above the polaroid, onto the rope */
+  left: 50%;
+  transform: translateX(-50%);
+  width: 10px;
+  height: 26px;
+  background: #c39d82; /* Wood color */
+  border-radius: 4px;
+  box-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+  z-index: 20;
+}
+.cl-pin::after {
+  content: "❤️"; /* Red heart on the clothespin */
+  font-size: 14px;
+  position: absolute;
+  top: 8px;
+  left: -2px;
+}
+
+/* ═══════════════════════════════════════════
+   VIDEO SECTION
+═══════════════════════════════════════════ */
+.video-section {
+  padding: var(--section-padding);
+  background: var(--bg-warm);
+}
+
+.video-wrapper {
+  max-width: 850px;
+  margin: 0 auto;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+  border: 3px solid rgba(242, 183, 5, 0.2);
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.7s ease;
+}
+
+.video-wrapper.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.video-placeholder {
+  display: none;
+}
+
+.main-video {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9;
+  display: block;
+  border-radius: 16px;
+  background: #000;
+}
+
+.play-button {
+  width: 80px;
+  height: 80px;
+  background: var(--color-crimson);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 5px 25px rgba(191, 4, 38, 0.3);
+  transition: transform 0.3s ease;
+}
+
+.play-button:hover {
+  transform: scale(1.1);
+}
+
+.play-button svg {
+  width: 28px;
+  height: 28px;
+  fill: white;
+  margin-left: 4px;
+}
+
+.video-placeholder .video-label {
+  font-family: var(--font-handwritten);
+  font-size: 1.1rem;
+  color: var(--text-muted);
+}
+
+/* ═══════════════════════════════════════════
+   FOOTER
+═══════════════════════════════════════════ */
+.footer {
+  text-align: center;
+  padding: 60px 20px;
+  background: var(--bg-cream);
+}
+
+.footer .big-farewell {
+  font-family: var(--font-handwritten);
+  font-size: 3rem;
+  color: var(--color-crimson);
+  margin-bottom: 12px;
+}
+
+.footer p {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+.footer .heart {
+  color: var(--color-crimson);
+  display: inline-block;
+  animation: heartbeat 1.5s ease-in-out infinite;
+}
+
+@keyframes heartbeat {
+
+  0%,
+  100% {
+    transform: scale(1);
+  }
+
+  15% {
+    transform: scale(1.2);
+  }
+
+  30% {
+    transform: scale(1);
+  }
+
+  45% {
+    transform: scale(1.15);
+  }
+}
+
+/* ═══════════════════════════════════════════
+   RESPONSIVE
+═══════════════════════════════════════════ */
+@media (max-width: 900px) {
+  html {
+    font-size: 16px;
+  }
+
+  .hero h1 {
+    font-size: 2.5rem;
+  }
+
+  .hero h1 .name {
+    font-size: 3.2rem;
+  }
+
+  .milestone {
+    padding-right: 0 !important;
+    padding-left: 80px !important;
+    flex-direction: row !important;
+    text-align: left !important;
+  }
+
+  .milestone-marker {
+    left: 0 !important;
+    transform: none !important;
+  }
+
+  .polaroid-pile {
+    height: 550px;
+  }
+
+  .polaroid {
+    width: 140px !important;
+    height: 125px !important;
+  }
+
+  .letters-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .hero h1 {
+    font-size: 2rem;
+  }
+
+  .hero h1 .name {
+    font-size: 2.6rem;
+  }
+
+  .section-header h2 {
+    font-size: 2rem;
+  }
+
+  .polaroid-pile {
+    height: 450px;
+  }
+
+  .polaroid {
+    width: 110px !important;
+    height: 100px !important;
+    padding: 5px 5px 20px !important;
+  }
+
+  .letters-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .envelope-card {
+    height: 240px;
+  }
+
+  .letter-modal-content {
+    padding: 40px 25px;
+  }
+
+  .letter-modal-text {
+    font-size: 1.1rem;
+    line-height: 1.7;
+  }
+
+  .letter-modal-sign {
+    font-size: 1.3rem;
+  }
+
+  .footer .big-farewell {
+    font-size: 2.2rem;
+  }
+}
+
+/* ── Envelope Color Variations ── */
+.envelope-card:nth-child(2) .env-body {
+  background: #B6D7DE;
+}
+
+.envelope-card:nth-child(2) .env-back-flap {
+  background: #99BDC4;
+}
+
+.envelope-card:nth-child(2) .env-front-flap {
+  background: #C2E1E6;
+}
+
+.envelope-card:nth-child(3) .env-body {
+  background: #D6E0B3;
+}
+
+.envelope-card:nth-child(3) .env-back-flap {
+  background: #BCC996;
+}
+
+.envelope-card:nth-child(3) .env-front-flap {
+  background: #E1E8C1;
+}
+
+.envelope-card:nth-child(4) .env-body {
+  background: #EBC1C8;
+}
+
+.envelope-card:nth-child(4) .env-back-flap {
+  background: #D49BA4;
+}
+
+.envelope-card:nth-child(4) .env-front-flap {
+  background: #F2D1D6;
+}
+
+.wax-seal {
+  transform: rotate(-10deg);
+}
+
+/* =============================================
+   TIMELINE SECTION
+============================================= */
+.timeline-section {
+  padding: var(--section-padding);
+  background: var(--bg-warm);
+  position: relative;
+}
+
+/* =============================================
+   MILESTONE CARD GRID
+   6 cards, 3-column x 2-row, single screen
+============================================= */
+
+.milestone-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  max-width: 860px;
+  margin: 0 auto;
+}
+
+/* Each milestone card */
+.mg-card {
+  background: #fff;
+  border-radius: 18px;
+  padding: 16px 15px 15px; /* Reduced padding to fit 9 cards better */
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.07);
+  border: 2px solid rgba(242, 183, 5, 0.2);
+  text-align: center;
+  position: relative;
+  opacity: 0;
+  transform: translateY(24px) scale(0.95);
+  transition: opacity 0.55s cubic-bezier(0.19, 1, 0.22, 1),
+    transform 0.55s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+.mg-card:hover {
+  box-shadow: 0 8px 32px rgba(242, 183, 5, 0.18);
+  border-color: rgba(242, 183, 5, 0.5);
+  transform: translateY(-3px) scale(1.02) !important;
+}
+
+/* Reveal animation */
+.mg-card.auto-visible {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+/* Year badge — top */
+.mg-num {
+  font-family: var(--font-handwritten);
+  font-size: 1.4rem; /* Smaller number */
+  color: var(--color-crimson);
+  line-height: 1;
+  margin-bottom: 4px; /* Tighter margin */
+}
+
+/* Large emoji icon */
+.mg-icon {
+  font-size: 1.8rem; /* Smaller icon */
+  margin-bottom: 5px; /* Tighter margin */
+  display: block;
+}
+
+/* Title */
+.mg-title {
+  font-family: var(--font-display);
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--text-dark);
+  line-height: 1.4;
+  margin-bottom: 6px;
+}
+
+/* Description */
+.mg-desc {
+  font-size: 0.75rem;
+  color: var(--text-body);
+  line-height: 1.5;
+}
+
+/* Last card (2025) — special gold accent */
+.mg-last {
+  border-color: rgba(242, 183, 5, 0.5);
+  background: linear-gradient(135deg, #fff 60%, #FFFBEE);
+}
+
+/* Ping on reveal */
+.mg-card.auto-visible {
+  animation: mgReveal 0.55s cubic-bezier(0.19, 1, 0.22, 1) both;
+}
+
+@keyframes mgReveal {
+  from {
+    opacity: 0;
+    transform: translateY(24px) scale(0.93);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* .milestone class is used by JS querySelectorAll — override old styles for grid cards */
+.mg-card.milestone {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  position: relative !important;
+  margin-bottom: 0 !important;
+  padding-right: 0 !important;
+  padding-left: 0 !important;
+  text-align: center !important;
+}
+
+/* Autoplay-mode: keep mg-cards hidden/visible via auto-visible class */
+.timeline-section.autoplay-mode .mg-card.milestone {
+  opacity: 0;
+  transform: translateY(24px) scale(0.93);
+  transition: opacity 0.55s cubic-bezier(0.19, 1, 0.22, 1),
+    transform 0.55s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+.timeline-section.autoplay-mode .mg-card.milestone.auto-visible {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+/* ═══════════════════════════════════════════
+   PHOTO LIGHTBOX MODAL
+═══════════════════════════════════════════ */
+.photo-lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 10000;
+  background: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.4s ease;
+  padding: 40px;
+}
+
+.photo-lightbox.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.lightbox-img {
+  max-width: 90vw;
+  max-height: 90vh;
+  object-fit: contain;
+  border-radius: 8px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+  transform: scale(0.9);
+  transition: transform 0.4s cubic-bezier(0.19, 1, 0.22, 1);
+  background: white;
+  padding: 15px 15px 45px 15px;
+}
+
+.photo-lightbox.active .lightbox-img {
+  transform: scale(1) rotate(0deg);
+}
+
+.lightbox-close {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  background: none;
+  border: none;
+  font-size: 3rem;
+  color: #fff;
+  cursor: pointer;
+  line-height: 1;
+  transition: color 0.3s ease;
+  z-index: 10001;
+}
+
+.lightbox-close:hover {
+  color: var(--color-gold);
+}
